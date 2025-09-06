@@ -104,27 +104,27 @@ export function Homepage({ onEnterApp }: HomepageProps) {
 
   const testimonials = [
     {
-      name: "Dr. Sarah Chen",
-      specialty: "Infectious Disease Specialist",
-      hospital: "Johns Hopkins Hospital",
+      name: "Dr. Tarshit Malik",
+      specialty: "Endodontist",
+      hospital: "Malik Dental Clinic",
       quote: "SphereRx has revolutionized how I collaborate with colleagues worldwide. The case discussions have improved my diagnostic accuracy significantly.",
-      avatar: "SC",
+      avatar: "TM",
       rating: 5
     },
     {
-      name: "Dr. Michael Rodriguez",
-      specialty: "Cardiologist",
+      name: "Dr. Ritik Khanna",
+      specialty: "MBBS",
       hospital: "Mayo Clinic",
       quote: "The platform's security features give me confidence when discussing sensitive cases. It's become an essential tool in my daily practice.",
-      avatar: "MR",
+      avatar: "RK",
       rating: 5
     },
     {
-      name: "Dr. Jennifer Liu",
-      specialty: "Pediatric Endocrinologist",
-      hospital: "Boston Children's Hospital",
+      name: "Dr. Megha Chalana",
+      specialty: "Endodontist",
+      hospital: "Malik Dental Clinic",
       quote: "Finding specialists for rare pediatric cases used to be challenging. SphereRx's network has been invaluable for patient care.",
-      avatar: "JL",
+      avatar: "MC",
       rating: 5
     }
   ];
@@ -388,8 +388,8 @@ export function Homepage({ onEnterApp }: HomepageProps) {
       {/* Footer */}
       <footer id="about" className="py-12">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <LogoWithCaption></LogoWithCaption>
+          {/* <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            
             <div>
               <h4 className="font-semibold mb-4">Platform</h4>
               <ul className="space-y-2 text-sm text-gray-400">
@@ -419,10 +419,15 @@ export function Homepage({ onEnterApp }: HomepageProps) {
                 <li><a href="#" className="hover:text-green-600">Terms</a></li>
               </ul>
             </div>
-          </div>
+          </div> */}
           
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
-            <p>&copy; 2025 SphereRx. All rights reserved. HIPAA compliant medical networking platform.</p>
+          <div className="mt-8 text-center text-sm text-gray-400">
+            <div className="flex justify-center">
+              <LogoWithCaption></LogoWithCaption>
+            </div>
+            <p>&copy; 2025 SphereRx. All rights reserved.</p>
+            <p>Built for Medical Professionals, In Collaboration with Medical Professionals.</p>
+            <p>*All names, designations, and identities shown are purely for visualization purposes and bear no relation to real doctors or real-life individuals.</p>
           </div>
         </div>
       </footer>

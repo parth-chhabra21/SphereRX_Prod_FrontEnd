@@ -30,7 +30,8 @@ export function JoinModal({ isOpen, onClose, onSuccess }: JoinModalProps) {
     "Cardiology", "Neurology", "Orthopedics", "Pediatrics", "Emergency Medicine",
     "Internal Medicine", "Surgery", "Anesthesiology", "Radiology", "Pathology",
     "Psychiatry", "Dermatology", "Ophthalmology", "ENT", "Urology",
-    "Gynecology", "Oncology", "Infectious Disease", "Endocrinology", "Other"
+    "Gynecology", "Oncology", "Infectious Disease", "Endocrinology","Endodontist", "Prosthodontist", "Orthodontist",
+    "Pediatric Dentistry","Medical Graduate", "Other"
   ];
 
   const experienceLevels = [

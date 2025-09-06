@@ -242,7 +242,7 @@ export function PlatformPreview({ onEnterApp }: PlatformPreviewProps) {
                       {tab.id === "dashboard" && (
                         <div className="p-6 space-y-4">
                           <div className="flex items-center justify-between mb-4">
-                            <h4 className="font-semibold text-gray-900">Good morning, Dr. Smith</h4>
+                            <h4 className="font-semibold text-gray-900">Good morning, Dr. Khanna</h4>
                             <Badge className="bg-green-100 text-green-700">Online</Badge>
                           </div>
                           
@@ -261,7 +261,7 @@ export function PlatformPreview({ onEnterApp }: PlatformPreviewProps) {
                               <Heart className="h-8 w-8 text-red-500" />
                               <div>
                                 <div className="font-medium text-sm">New Cardiology Case</div>
-                                <div className="text-xs text-gray-600">Dr. Johnson shared a complex case</div>
+                                <div className="text-xs text-gray-600">Dr. Khanna shared a complex case</div>
                               </div>
                             </div>
                             <div className="flex items-center gap-3 p-3 bg-green-50 rounded-lg">
@@ -314,11 +314,11 @@ export function PlatformPreview({ onEnterApp }: PlatformPreviewProps) {
                           <div className="space-y-3">
                             <div className="flex items-center gap-3 p-3 border rounded-lg">
                               <div className="h-10 w-10 bg-blue-100 rounded-full flex items-center justify-center">
-                                <span className="text-blue-700 font-medium text-sm">JS</span>
+                                <span className="text-blue-700 font-medium text-sm">TM</span>
                               </div>
                               <div className="flex-1">
-                                <div className="font-medium text-sm">Dr. Jane Smith</div>
-                                <div className="text-xs text-gray-600">Cardiologist at Mayo Clinic</div>
+                                <div className="font-medium text-sm">Dr. Tarshit Malik</div>
+                                <div className="text-xs text-gray-600">Cardiologist at Malik Clinic</div>
                                 <div className="flex gap-1 mt-1">
                                   <Badge className="bg-yellow-100 text-yellow-700 text-xs">New Connection</Badge>
                                 </div>
@@ -330,10 +330,10 @@ export function PlatformPreview({ onEnterApp }: PlatformPreviewProps) {
 
                             <div className="flex items-center gap-3 p-3 border rounded-lg">
                               <div className="h-10 w-10 bg-green-100 rounded-full flex items-center justify-center">
-                                <span className="text-green-700 font-medium text-sm">MJ</span>
+                                <span className="text-green-700 font-medium text-sm">RK</span>
                               </div>
                               <div className="flex-1">
-                                <div className="font-medium text-sm">Dr. Michael Johnson</div>
+                                <div className="font-medium text-sm">Dr. Ritik Khanna</div>
                                 <div className="text-xs text-gray-600">Neurologist at Johns Hopkins</div>
                                 <div className="flex gap-1 mt-1">
                                   <Badge className="bg-green-100 text-green-700 text-xs">Connected</Badge>
