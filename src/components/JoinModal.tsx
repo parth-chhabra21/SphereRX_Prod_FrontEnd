@@ -8,6 +8,7 @@ import { Checkbox } from "./ui/checkbox";
 import { Badge } from "./ui/badge";
 import { User, Mail, MapPin, Stethoscope, GraduationCap, Building2, CheckCircle } from "lucide-react";
 import { LogoOnly } from "./ui/logo";
+import axios from 'axios';
 
 interface JoinModalProps {
   isOpen: boolean;
@@ -17,19 +18,12 @@ interface JoinModalProps {
 
 export function JoinModal({ isOpen, onClose, onSuccess }: JoinModalProps) {
   const [step, setStep] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
+    name: "",
     email: "",
-    phone: "",
-    specialty: "",
-    experience: "",
-    hospital: "",
-    licenseNumber: "",
-    country: "",
-    agreeTerms: false,
-    agreePrivacy: false,
-    subscribeUpdates: true
+    mobileNo: "",
+    specialty: ""
   });
 
   const specialties = [
@@ -68,15 +62,25 @@ export function JoinModal({ isOpen, onClose, onSuccess }: JoinModalProps) {
   const handleSubmit = () => {
     // Here you would typically send the data to your backend
     console.log("Registration data:", formData);
-    setStep(4); // Success step
-    setTimeout(() => {
-      onSuccess();
-      onClose();
-    }, 2000);
-  };
+
+    // const handleSignUp = async () => {
+
+    //     setIsLoading(true);
+
+    //     try {
+    //       const response = await axios.post(
+    //     "https://sheetdb.io/api/v1/zoqv5zw293h95",
+    //     {
+    //       name: formData.name,
+    //       email: formData.email,
+    //       mobileNo: formData.mobileNo,
+    //       speciality: formData.specialty,
+    //     });
+      
+  }
 
   const isStep1Valid = () => {
-    return formData.firstName && formData.lastName && formData.email && formData.phone;
+    return formData.name && formData.email && formData.mobileNo && formData.specialty;
   };
 
   const isStep2Valid = () => {
@@ -100,7 +104,7 @@ export function JoinModal({ isOpen, onClose, onSuccess }: JoinModalProps) {
         </DialogHeader>
 
         {/* Progress Indicator */}
-        <div className="flex items-center justify-between mb-6">
+        {/* <div className="flex items-center justify-between mb-6">
           {[1, 2, 3, 4].map((num) => (
             <div key={num} className="flex items-center">
               <div className={`h-8 w-8 rounded-full flex items-center justify-center text-sm font-medium ${
@@ -117,7 +121,7 @@ export function JoinModal({ isOpen, onClose, onSuccess }: JoinModalProps) {
               )}
             </div>
           ))}
-        </div>
+        </div> */}
 
         {/* Step 1: Personal Information */}
         {step === 1 && (
@@ -129,21 +133,12 @@ export function JoinModal({ isOpen, onClose, onSuccess }: JoinModalProps) {
             
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <Label htmlFor="firstName">First Name *</Label>
+                <Label htmlFor="name"> Name </Label>
                 <Input
-                  id="firstName"
-                  value={formData.firstName}
-                  onChange={(e) => handleInputChange("firstName", e.target.value)}
-                  placeholder="Enter first name"
-                />
-              </div>
-              <div>
-                <Label htmlFor="lastName">Last Name *</Label>
-                <Input
-                  id="lastName"
-                  value={formData.lastName}
-                  onChange={(e) => handleInputChange("lastName", e.target.value)}
-                  placeholder="Enter last name"
+                  id="name"
+                  value={formData.name}
+                  onChange={(e) => handleInputChange("name", e.target.value)}
+                  placeholder="Enter Name"
                 />
               </div>
             </div>
@@ -160,29 +155,50 @@ export function JoinModal({ isOpen, onClose, onSuccess }: JoinModalProps) {
             </div>
 
             <div>
-              <Label htmlFor="phone">Phone Number *</Label>
+              <Label htmlFor="mobileNo">mobileNo Number *</Label>
               <Input
-                id="phone"
-                value={formData.phone}
-                onChange={(e) => handleInputChange("phone", e.target.value)}
-                placeholder="Enter phone number"
+                id="mobileNo"
+                value={formData.mobileNo}
+                onChange={(e) => handleInputChange("mobileNo", e.target.value)}
+                placeholder="Enter mobileNo number"
               />
+            </div>
+
+            <h3 className="text-lg font-semibold flex items-center gap-2">
+              <Stethoscope className="h-5 w-5 text-green-600" />
+              Professional Details
+            </h3>
+
+            <div>
+              <Label htmlFor="specialty">Medical Specialty *</Label>
+              <Select value={formData.specialty} onValueChange={(value) => handleInputChange("specialty", value)}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select your specialty" />
+                </SelectTrigger>
+                <SelectContent>
+                  {specialties.map((specialty) => (
+                    <SelectItem key={specialty} value={specialty}>
+                      {specialty}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
 
             <div className="flex justify-end">
               <Button 
-                onClick={handleNext} 
+                onClick={handleSubmit} 
                 disabled={!isStep1Valid()}
                 className="bg-green-600 hover:bg-green-700"
               >
-                Next Step
+                Submit
               </Button>
             </div>
           </div>
         )}
 
         {/* Step 2: Professional Information */}
-        {step === 2 && (
+        {/* {step === 2 && (
           <div className="space-y-4">
             <h3 className="text-lg font-semibold flex items-center gap-2">
               <Stethoscope className="h-5 w-5 text-green-600" />
@@ -270,10 +286,10 @@ export function JoinModal({ isOpen, onClose, onSuccess }: JoinModalProps) {
               </Button>
             </div>
           </div>
-        )}
+        )} */}
 
         {/* Step 3: Terms and Preferences */}
-        {step === 3 && (
+        {/* {step === 3 && (
           <div className="space-y-4">
             <h3 className="text-lg font-semibold flex items-center gap-2">
               <CheckCircle className="h-5 w-5 text-green-600" />
@@ -353,10 +369,10 @@ export function JoinModal({ isOpen, onClose, onSuccess }: JoinModalProps) {
               </Button>
             </div>
           </div>
-        )}
+        )} */}
 
         {/* Step 4: Success */}
-        {step === 4 && (
+        {/* {step === 4 && (
           <div className="text-center space-y-4 py-8">
             <div className="h-16 w-16 bg-green-100 rounded-full flex items-center justify-center mx-auto">
               <CheckCircle className="h-8 w-8 text-green-600" />
@@ -371,7 +387,7 @@ export function JoinModal({ isOpen, onClose, onSuccess }: JoinModalProps) {
               </p>
             </div>
           </div>
-        )}
+        )} */}
       </DialogContent>
     </Dialog>
   );
